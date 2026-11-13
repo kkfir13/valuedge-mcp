@@ -56,7 +56,9 @@ When you use a third-party AI client, information returned from ValuEdge is tran
 
 ## Test status
 
-This repository's Cline installation has **not yet been tested end to end**. The endpoint and setup details above are based on ValuEdge's published connection guide and Cline's published MCP configuration documentation. Do not treat this documentation as proof of a successful Cline setup.
+Cline CLI 3.0.74 was tested in an isolated configuration: `cline mcp add valuedge https://valuedge.app/mcp --transport http --yes` completed and generated the expected Streamable HTTP configuration. This verified configuration only, not a server connection or tool discovery.
+
+A live connection test from the test environment was blocked by Cloudflare with HTTP 403, error 1010 (`browser_signature_banned`). No MCP tools were called, and OAuth for private data was not tested. Do not treat this as an end-to-end Cline installation test or a passed OAuth test. Cloudflare's response said not to retry from that environment.
 
 ## License
 
