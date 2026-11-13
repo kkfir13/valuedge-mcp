@@ -7,6 +7,7 @@ ValuEdge's remote Model Context Protocol (MCP) server lets compatible AI assista
 - **Authentication:** Public research tools work without signing in. The ValuEdge sign-in flow is required for private account data.
 - **Permissions:** Read-only. The MCP connection does not place trades, move funds, or change your ValuEdge account, holdings, watchlist, or Smart Alerts.
 - **API key:** None to copy or configure.
+- **Marketplace icon:** [400×400 PNG](assets/valuedge-400.png), resized from the official [ValuEdge brand icon](https://github.com/kkfir13/valuedge-claude-stock-research-plugin/blob/main/assets/logo-icon.jpg).
 
 ## Connect from Cline
 
