@@ -43,4 +43,4 @@ Data returned by ValuEdge is shared with the connected AI provider and may be pr
 
 Endpoint, access model, and permission claims: https://valuedge.app/connect, https://valuedge.app/terms, and https://valuedge.app/privacy. Cline remote HTTP configuration: https://github.com/cline/cline/blob/main/docs/mcp/mcp-overview.mdx.
 
-The Cline installation has not been tested end to end. These instructions are prepared from published documentation and must be tested in Cline before submission to Cline's MCP Marketplace.
+Cline CLI 3.0.74 accepted the add command and generated the expected Streamable HTTP configuration in an isolated test. The CLI configuration was not followed by successful live connection or tool discovery. A direct initialize request from the test environment was blocked by Cloudflare HTTP 403 error 1010 (`browser_signature_banned`); no tools were called and OAuth was not tested. Cloudflare said not to retry from that environment. Therefore Cline setup has not been verified end to end, and this cannot be marked as a successful Cline installation test for marketplace submission.
