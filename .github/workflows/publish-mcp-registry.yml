@@ -1,0 +1,40 @@
+name: Publish ValuEdge MCP Registry metadata
+
+# Publish metadata only. This workflow does not deploy or modify the live MCP server.
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - server.json
+      - .github/workflows/publish-mcp-registry.yml
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    if: github.repository == 'kkfir13/valuedge-mcp'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Check out published metadata
+        uses: actions/checkout@v5
+
+      - name: Install official MCP Registry publisher
+        run: |
+          set -euo pipefail
+          curl -fsSL "https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/').tar.gz" | tar xz mcp-publisher
+          chmod +x ./mcp-publisher
+
+      - name: Validate registry schema and semantics
+        run: ./mcp-publisher validate server.json
+
+      - name: Authenticate as this GitHub repository via OIDC
+        run: ./mcp-publisher login github-oidc
+
+      - name: Publish this repository's ValuEdge server metadata
+        run: ./mcp-publisher publish server.json
