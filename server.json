@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.kkfir13/valuedge",
   "title": "ValuEdge MCP — Stock Valuation, Screener & Portfolio Research",
-  "description": "Connect AI assistants to ValuEdge stock valuation, intrinsic/fair value, fundamentals, bounded stock screening and daily technical analysis. With ValuEdge OAuth, review your own portfolios, watchlists, alerts and dividends; separately permissioned tools can edit eligible manual records. No brokerage trades.",
+  "description": "Stock valuations, fundamentals, bounded screens, and OAuth-enabled portfolio research.",
   "version": "1.1.0",
   "repository": {
     "url": "https://github.com/kkfir13/valuedge-mcp",
