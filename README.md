@@ -2,7 +2,7 @@
 
 Connect **ValuEdge** to Claude and other compatible AI assistants through the remote **Model Context Protocol (MCP)**. Research stocks using **intrinsic value estimates, fundamental analysis, valuation comparisons, and a bounded stock screener**. With your own ValuEdge authorization, review portfolio holdings, watchlists, Smart Alerts, and dividend information.
 
-**Start here:** [Connect ValuEdge to an AI assistant](https://valuedge.app/connect?utm_source=github&utm_medium=readme&utm_campaign=mcp_discovery&utm_content=valuedge-mcp) · [ValuEdge in Claude Directory](https://claude.ai/directory/valuedge) · [Stock Analysis focused plugin](https://github.com/kkfir13/stock-analysis)
+**Start here:** [Connect ValuEdge to an AI assistant](https://valuedge.app/connect?utm_source=github&utm_medium=readme&utm_campaign=mcp_discovery&utm_content=valuedge-mcp) · [ValuEdge in Claude Directory](https://claude.ai/directory/valuedge) · [Stock Analysis focused plugin](https://github.com/kkfir13/stock-analysis) · [Official MCP Registry](https://registry.modelcontextprotocol.io/?q=io.github.kkfir13%2Fvaluedge) · [Glama MCP connector](https://glama.ai/mcp/connectors/app.valuedge/valu-edge)
 
 > **Research, not brokerage trading.** Valuation outputs are model estimates, not price guarantees or buy/sell recommendations. Some account-management tools can change your own ValuEdge watchlist or manual portfolio records **only with the appropriate OAuth authorization and explicit user request/confirmation**. They do **not** place orders, move funds, or edit broker-synced transactions. Exact access depends on the client, tool, and ValuEdge plan.
 
