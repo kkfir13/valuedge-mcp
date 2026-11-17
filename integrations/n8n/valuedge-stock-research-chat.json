@@ -1,0 +1,124 @@
+{
+  "name": "ValuEdge Stock Research Chat",
+  "nodes": [
+    {
+      "parameters": {
+        "public": false,
+        "options": {
+          "responseMode": "streaming"
+        }
+      },
+      "id": "2a5112cc-193c-4e82-a7dc-edf95168f949",
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.5,
+      "position": [
+        240,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.chatInput }}",
+        "options": {
+          "systemMessage": "You are a careful stock research assistant using ValuEdge MCP. Use the connected ValuEdge tools to answer questions about supported public-company valuation, fundamentals, and comparisons. Use only these public research tools: get_stock_valuation, get_stock_fundamentals, compare_stocks. Do not call account-specific tools, request credentials, or make account changes. Explain key assumptions, data dates, and missing coverage when returned by tools. Never invent missing values or imply that a model estimate is a guaranteed price or a buy/sell recommendation. If ValuEdge returns an authorization, plan, or coverage limitation, state it plainly. Keep the answer concise and distinguish sourced tool output from your own interpretation."
+        }
+      },
+      "id": "095a3602-7702-4a3b-bf12-88ed42cd318d",
+      "name": "Stock Research Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        540,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "id": "9ccf4777-94ed-41f0-b061-0ef89790713a",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        440,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "endpointUrl": "https://valuedge.app/mcp",
+        "serverTransport": "httpStreamable",
+        "authentication": "none",
+        "include": "selected",
+        "includeTools": [
+          "get_stock_valuation",
+          "get_stock_fundamentals",
+          "compare_stocks"
+        ],
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "9ed484cb-2293-4a9d-b76d-2412884c587f",
+      "name": "ValuEdge Public Research Tools",
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "typeVersion": 1.4,
+      "position": [
+        700,
+        560
+      ]
+    }
+  ],
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Stock Research Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Stock Research Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ValuEdge Public Research Tools": {
+      "ai_tool": [
+        [
+          {
+            "node": "Stock Research Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "7fd8f238-1241-4a4e-bc68-6c5e0f174e2c",
+  "meta": {
+    "templateCredsSetupCompleted": false
+  },
+  "tags": []
+}
