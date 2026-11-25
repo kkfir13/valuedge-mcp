@@ -28,6 +28,14 @@ Review matched sales and FIFO realized profit and loss for stock and ETF trades 
 
 Where permissions allow, the connector can record, correct, or remove manual portfolio records with your confirmation. The records represent past transactions. Broker-synced records and brokerage order execution are outside this workflow.
 
+## Import a transaction history CSV
+
+Open [Portfolio Tracker](https://valuedge.app/portfolio) in ValuEdge, select the destination portfolio, and choose **Import CSV**. Use a supported transaction-history export with purchases and sales, review the import preview, and confirm it on ValuEdge.
+
+Return to Claude and ask: “Analyze my ValuEdge trading journal. Show matched closed trades, realized P&L by currency, and any missing cost-basis or fee evidence.”
+
+File transfer from the Claude conversation is unavailable for this connector. Use the import screen in ValuEdge for your transaction history.
+
 ## Stock and ETF strategy backtesting
 
 Use daily price history to preview a supported long-only strategy in Research Lab. Check the executed rules, historical coverage, commissions, and slippage before confirming a run. A saved result can show performance versus buying and holding the same security, maximum drawdown, and example trades.
