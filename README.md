@@ -8,6 +8,8 @@ Connect **ValuEdge** to Claude and other compatible AI assistants through the re
 
 > **Research, not brokerage trading.** Valuation outputs are model estimates, not price guarantees or buy/sell recommendations. Some account-management tools can change your own ValuEdge watchlist or manual portfolio records **only with the appropriate OAuth authorization and explicit user request/confirmation**. They do **not** place orders, move funds, or edit broker-synced transactions. Exact access depends on the client, tool, and ValuEdge plan.
 
+**Trading journal and stock backtesting:** The dedicated [ValuEdge Trading Journal & Backtesting connector](trading-journal-backtesting.md) covers FIFO realized P&L, closed trades, daily strategy backtests, and buy-and-hold comparisons through its own Claude connection.
+
 ## What can I ask ValuEdge MCP?
 
 | Search intent / task | Example prompt | Relevant MCP capabilities |
